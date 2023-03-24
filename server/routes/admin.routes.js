@@ -14,9 +14,9 @@ adminRouter.get("/", async (req, res) => {
 });
 
 adminRouter.post("/register", async (req, res) => {
-  const { email, pass, name} = req.body;
+  const { email, pass, name } = req.body;
   try {
-    bcrypt.hash(pass,5, async (err, secured_password) => {
+    bcrypt.hash(pass, 5, async (err, secured_password) => {
       // Store hash in your password DB.
       if (err) {
         console.log(err);
@@ -25,7 +25,6 @@ adminRouter.post("/register", async (req, res) => {
           email,
           pass: secured_password,
           name,
-        
         });
         await user.save();
         res.send("Registered");
