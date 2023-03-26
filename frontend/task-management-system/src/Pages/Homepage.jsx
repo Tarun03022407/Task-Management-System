@@ -1,8 +1,15 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
+import Tasks from '../components/Tasks'
+import Users from './Users'
 
 const Homepage = () => {
   return (
-    <div>Homepage</div>
+    <div>
+      <Navbar />
+      <Users />
+     
+    </div>
   )
 }
 

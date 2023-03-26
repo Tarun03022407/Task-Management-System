@@ -1,13 +1,21 @@
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Text,
+} from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-const navigate = useNavigate()
-  const { handleAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
+  // const { handleAuth } = useContext(AuthContext);
 
   const handleSubmit = () => {
     const payload = { email, pass };
@@ -23,30 +31,58 @@ const navigate = useNavigate()
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.token);
-        handleAuth(true)
-        navigate("/homepage");
-
+        alert(res.msg)
+        // handleAuth(true);
+        navigate("/homepage")
+        
       })
-      .catch((err) => console.log(err));
-  };
-
+      .catch((error) => console.log(error.msg));
+    };
+    
   return (
     <>
-      <div>LOGIN PAGE page</div>
+      <Box margin={"auto"} width={"40%"} border={"2px solid white"}>
+        <Text>Hello !! Login here</Text>
+        <Box>
+          <FormControl isRequired>
+            <FormLabel ml={"35%"} mt={"30px"}>
+              Enter Email
+            </FormLabel>
+            <Input
+              type="text"
+              placeholder="enter email"
+              width="30%"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              // marginTop="30px"
+            />
+          </FormControl>
+        </Box>
+        <Box>
+          <FormControl isRequired>
+            <FormLabel ml={"35%"} mt={"30px"}>
+              Enter Password
+            </FormLabel>
 
-      <input
-        type="text"
-        placeholder="enter email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="enter password"
-        value={pass}
-        onChange={(e) => setPass(e.target.value)}
-      />
-      <button onClick={handleSubmit}>LOGIN</button>
+            <Input
+              type="password"
+              width="30%"
+              placeholder="enter password"
+              value={pass}
+              onChange={(e) => setPass(e.target.value)}
+              // marginTop="30px"
+            />
+          </FormControl>
+        </Box>
+        <Box>
+          <Button mt={"20px"} onClick={handleSubmit}>
+            LOGIN
+          </Button>
+        </Box>
+        <Box>
+          <Link to={"/signup"}>Not Subscribed ? SignUp here</Link>
+        </Box>
+      </Box>
     </>
   );
 };
