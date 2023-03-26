@@ -13,7 +13,7 @@ const Tasks = () => {
 
   return (
     <div style={{marginTop:"50px"}}>
-            <Grid templateColumns="repeat(5, 1fr)" gap={6}>
+            <Grid templateColumns="repeat(4, 1fr)" gap={6}>
       {data.map((item) => (
         <GridItem key={item.id}>
           {/* render each data item as a block */}
@@ -22,7 +22,7 @@ const Tasks = () => {
           <Box fontSize={"20px"} width="200px" >{` Title : ${item.title}`}</Box>
           <Box fontSize={"20px"} width="200px" >{` Description : ${item.description}`}</Box>
           <Box fontSize={"20px"} width="200px" >{` Type of task : ${item.type}`}</Box>
-          <Box fontSize={"20px"} width="200px" >{` Task Manager : ${item.assignedTo}`}</Box>
+          <Box fontSize={"20px"} width="200px" >{` Employee Id : ${item.assignedTo}`}</Box>
 
           </Box>
           <Button>Edit</Button>

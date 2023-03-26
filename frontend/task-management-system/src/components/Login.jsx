@@ -15,7 +15,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const navigate = useNavigate();
-  // const { handleAuth } = useContext(AuthContext);
+  const { handleAuth } = useContext(AuthContext);
 
   const handleSubmit = () => {
     const payload = { email, pass };
@@ -32,11 +32,16 @@ const Login = () => {
         console.log(res);
         localStorage.setItem("token", res.token);
         alert(res.msg)
-        // handleAuth(true);
+        handleAuth(true);
         navigate("/homepage")
+        if(res.msg==="wrong credentials"){
+        navigate("/")
+
+        }
         
       })
       .catch((error) => console.log(error.msg));
+      navigate("/login")
     };
     
   return (

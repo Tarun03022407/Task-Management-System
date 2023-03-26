@@ -31,7 +31,7 @@ const Register = () => {
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     alert(`registerd with name ${name}`);
-    navigate("/login");
+    navigate("/");
   };
 
   return (

@@ -81,12 +81,12 @@ const Navbar = () => {
   return (
     <div>
       {nav.map((el, i) => (
-        <Link style={{ margin: "5px" }} key={i} to={el.to}>
+        <Link   style={{ margin: "20px" ,fontSize:"25px"  }} key={i} to={el.to}>
           {el.title}
         </Link>
       ))}
       <Button onClick={handleOpenModalemployee}>Add Employee</Button>
-      <Button onClick={handleOpenModaltask}>Add Task</Button>
+      <Button  ml={"25px"} onClick={handleOpenModaltask}>Add Task</Button>
 
       <Modal
         color="black"

@@ -11,13 +11,9 @@ const UserDetails = () => {
   useEffect(() => {
     axios
       .get(`http://localhost:4400/tasks/${_id}`)
-      .then((res) => console.log(res.data))
       .then((res) => setTasks(res.data));
-  }, []);
+    }, []);
 
-  // if(!isAuth){
-  //   return <Navigate to="/login"  />
-  // }
 
   return (
     <>
