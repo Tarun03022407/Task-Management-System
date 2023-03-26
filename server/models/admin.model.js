@@ -4,5 +4,5 @@ const adminSchema = mongoose.Schema({
   email: String,
   pass: String,
 });
-const AdminModel = mongoose.model("user", adminSchema);
+const AdminModel = mongoose.model("admin", adminSchema);
 module.exports = { AdminModel };

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const taskSchema = mongoose.Schema({
   title: String,
-  type: { type: String, enum: ["bug", "feature", "story"], default: "bug" },
+  type: String,
   description: String,
   assignedTo: String,
 });

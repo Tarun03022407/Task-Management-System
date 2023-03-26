@@ -5,6 +5,6 @@ const userSchema = mongoose.Schema({
   Designation: String,
 });
 
-const UserModel = mongoose.model("post", userSchema);
+const UserModel = mongoose.model("employee", userSchema);
 
 module.exports = { UserModel };
